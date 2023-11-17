@@ -113,49 +113,27 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script>
-      let data = [
 
-        {
-          "id": 0,
-          "name": "肥宅心碎賞櫻3日",
-          "imgUrl": "https://images.unsplash.com/photo-1522383225653-ed111181a951?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1655&q=80",
-          "area": "高雄",
-          "description": "賞櫻花最佳去處。肥宅不得不去的超讚景點！",
-          "group": 87,
-          "price": 1400,
-          "rate": 10
-        },
-        {
-          "id": 1,
-          "name": "貓空纜車雙程票",
-          "imgUrl": "https://images.unsplash.com/photo-1501393152198-34b240415948?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-          "area": "台北",
-          "description": "乘坐以透明強化玻璃為地板的「貓纜之眼」水晶車廂，享受騰雲駕霧遨遊天際之感",
-          "group": 99,
-          "price": 240,
-          "rate": 2
-        },
-        {
-          "id": 2,
-          "name": "台中谷關溫泉會1日",
-          "imgUrl": "https://images.unsplash.com/photo-1535530992830-e25d07cfa780?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80",
-          "area": "台中",
-          "description": "全館客房均提供谷關無色無味之優質碳酸原湯，並取用八仙山之山冷泉供蒞臨貴賓沐浴及飲水使用。",
-          "group": 20,
-          "price": 1765,
-          "rate": 7
-        }
-      ];
-
+      let data = []
       const list = document.querySelector(".list")
       const filter = document.querySelector(".filter")
       const searchNum = document.querySelector(".searchNum")
-      console.log(filter)
-      function init(){
-        let str ="";
-        data.forEach(function(item){
-          str += `<div class="col">
+
+      axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
+        .then(function (response) {
+          // handle success
+          data = response.data.data
+          init();
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        });
+
+      function html(item){
+        return `<div class="col">
                 <div class="card h-100">
                   <div class="position-relative">
                     <div class="position-absolute translate-middle-y top-0 start-0 bg-secondary">
@@ -180,76 +158,32 @@
                   </div>
                 </div>
               </div>`
+      }
+      function init(){
+        let str ="";
+        data.forEach(function(item){
+          str += html(item)
         })
          list.innerHTML = str;
          searchNum.innerHTML = `本次搜尋共 ${data.length} 筆資料`
       }
-      init();
-
       filter.addEventListener("change",function(e){
         let address = e.target.value
         let str = "";
         let num = 0;
         data.forEach(function(item){
           if(address === item.area){
-            str += `<div class="col">
-                <div class="card h-100">
-                  <div class="position-relative">
-                    <div class="position-absolute translate-middle-y top-0 start-0 bg-secondary">
-                      <p class="m-0 px-5 py-3 text-white fs-5">${item.area}</p>
-                    </div>
-                    <img src=${item.imgUrl} class="card-img-top img-fluid" alt="...">
-                    <div class="position-absolute  bottom-0 transform-0-50 start-0 bg-primary">
-                      <p class="m-0 px-2 py-a5 text-white fs-16">${item.rate}</p>
-                    </div>
-                  </div>
-                  <div class="card-body p-5 mb-3">
-                    <h5 class="card-title fs-24 text-primary border-bottom border-2 border-primary mb-4">${item.name}</h5>
-                    <p class="card-text text-818A91">${item.description}</p>
-                  </div>
-                  <div class="card-footer border-0 bg-white pb-a25">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <p class="mb-0 fs-16 text-primary d-flex align-items-center"><span class="material-symbols-outlined bg-primary text-white rounded-circle me-a6">
-                        exclamation
-                        </span>剩下最後 ${item.group} 組</p>
-                      <p class="mb-0 fs-16 text-primary d-flex align-items-center">TWD<span class="ms-1 fs-32">$${item.price}</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>`
+            str += html(item)
             num++
           }else if(address === "全部地區"){
-            str += `<div class="col">
-                <div class="card h-100">
-                  <div class="position-relative">
-                    <div class="position-absolute translate-middle-y top-0 start-0 bg-secondary">
-                      <p class="m-0 px-5 py-3 text-white fs-5">${item.area}</p>
-                    </div>
-                    <img src=${item.imgUrl} class="card-img-top img-fluid" alt="...">
-                    <div class="position-absolute  bottom-0 transform-0-50 start-0 bg-primary">
-                      <p class="m-0 px-2 py-a5 text-white fs-16">${item.rate}</p>
-                    </div>
-                  </div>
-                  <div class="card-body p-5 mb-3">
-                    <h5 class="card-title fs-24 text-primary border-bottom border-2 border-primary mb-4">${item.name}</h5>
-                    <p class="card-text text-818A91">${item.description}</p>
-                  </div>
-                  <div class="card-footer border-0 bg-white pb-a25">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <p class="mb-0 fs-16 text-primary d-flex align-items-center"><span class="material-symbols-outlined bg-primary text-white rounded-circle me-a6">
-                        exclamation
-                        </span>剩下最後 ${item.group} 組</p>
-                      <p class="mb-0 fs-16 text-primary d-flex align-items-center">TWD<span class="ms-1 fs-32">$${item.price}</span></p>
-                    </div>
-                  </div>
-                </div>
-              </div>`
+            str += html(item)
             num = data.length
           }
         })
         list.innerHTML = str;
         searchNum.innerHTML = `本次搜尋共 ${num} 筆資料`
       })
+
     </script>
 </body>
 </html>c
