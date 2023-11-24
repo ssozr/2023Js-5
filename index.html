@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.css">
     <link rel="stylesheet" href="./stylesheets/all.css">
     
 </head>
@@ -28,16 +29,16 @@
                   </span>新增旅遊套票</h2>
                 <form>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">套票名稱</label>
-                    <input type="text" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="name" placeholder="請填寫套票名稱" aria-describedby="emailHelp">
+                    <label for="addName" class="form-label text-nowrap text-primary m-0 fw-medium">套票名稱</label>
+                    <input type="text" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="addName" placeholder="請填寫套票名稱" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">圖片網址</label>
-                    <input type="text" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="name" placeholder="請填寫圖片網址" aria-describedby="emailHelp">
+                    <label for="addImage" class="form-label text-nowrap text-primary m-0 fw-medium">圖片網址</label>
+                    <input type="text" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="addImage" placeholder="請填寫圖片網址" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="ticketRegion" class="form-label text-nowrap text-primary m-0 fw-medium">景點地區</label>
-                    <select id="ticketRegion" class=" py-2 px-3 w-100 border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA text-818A91" name="景點地區">
+                    <label for="addArea" class="form-label text-nowrap text-primary m-0 fw-medium">景點地區</label>
+                    <select id="addArea" class=" py-2 px-3 w-100 border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA text-818A91" name="景點地區">
                       <option value="">請選擇景點地區</option>
                       <option value="台北">台北</option>
                       <option value="台中">台中</option>
@@ -45,23 +46,34 @@
                     </select>
                   </div>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">套票金額</label>
-                    <input type="number" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="name" placeholder="請填寫套票金額" aria-describedby="emailHelp">
+                    <label for="addPrice" class="form-label text-nowrap text-primary m-0 fw-medium">套票金額</label>
+                    <input type="number" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="addPrice" placeholder="請填寫套票金額" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">套票組數</label>
-                    <input type="number" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="name" placeholder="請填寫套票組數" aria-describedby="emailHelp">
+                    <label for="addTicketRemainder " class="form-label text-nowrap text-primary m-0 fw-medium">套票組數</label>
+                    <input type="number" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="addTicketRemainder" placeholder="請填寫套票組數" aria-describedby="emailHelp">
                   </div>
                   <div class="mb-6 d-flex align-items-center">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">套票星級</label>
-                    <input type="number" class="form-control border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA py-2 px-3" id="name" placeholder="請填寫套票星級" aria-describedby="emailHelp">
+                    <label for="addStar" class="form-label text-nowrap text-primary m-0 fw-medium">套票星級</label>
+                    <select id="addStar" class=" py-2 px-3 w-100 border-0  border-bottom border-2 border-primary rounded-0 ms-31 input-FAFAFA text-818A91" name="套票星級">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                    </select>
                   </div>
                   <div class="mb-6 d-flex">
-                    <label for="name" class="form-label text-nowrap text-primary m-0 fw-medium">套票描述</label>
-                    <textarea type="text" class="form-control  border-0 border-bottom border-2 border-primary rounded-0 ms-31 pt-0 input-FAFAFA " id="name" placeholder="請填寫套票描述（限 100 字）" aria-describedby="emailHelp"></textarea>
+                    <label for="ticketDescription" class="form-label text-nowrap text-primary m-0 fw-medium">套票描述</label>
+                    <textarea type="text" class="form-control  border-0 border-bottom border-2 border-primary rounded-0 ms-31 pt-0 input-FAFAFA " id="ticketDescription" placeholder="請填寫套票描述（限 100 字）" aria-describedby="emailHelp"></textarea>
                   </div>
                   <div class="text-end">
-                    <button type="button" class="btn bg-primary py-a10 px-10 text-white fw-medium">新增套票</button>
+                    <button type="button" class="btn bg-primary py-a10 px-10 text-white fw-medium" id="addButton">新增套票</button>
                   </div>
                 </form>
               </div>
@@ -72,16 +84,23 @@
     <div class="container-fulid bg-F7F7F7 pt-16 pb-45">
       <div class="container">
         <div class="row">
-            <div class="d-flex align-items-center">
-              <div class="mb-3 col-3 offset-1 me-a30">
-                <select class="form-select filter" id="inputGroupSelect01">
-                  <option selected>全部地區</option>
-                  <option value="高雄">高雄</option>
-                  <option value="台北">台北</option>
-                  <option value="台中">台中</option>
-                </select>
+            <div class="col-10 offset-1">
+              <div class="d-flex align-items-start justify-content-between">
+                <div class="d-flex col-8 align-items-center">
+                  <div class="mb-3 me-a30 col-5">
+                    <select class="form-select filter" id="inputGroupSelect01">
+                      <option selected>全部地區</option>
+                      <option value="高雄">高雄</option>
+                      <option value="台北">台北</option>
+                      <option value="台中">台中</option>
+                    </select>
+                  </div>
+                  <h3 class=" fs-16 text-818A91 searchNum">本次搜尋共 6 筆資料</h3>
+                </div>
+                <div class="col-3 d-flex justify-content-center align-items-end">
+                  <div id="chart"></div>
+                </div>
               </div>
-              <h3 class="col-8 fs-16 text-818A91 searchNum">本次搜尋共 6 筆資料</h3>
             </div>
             <div class="row row-cols-1 row-cols-md-3 g-4 list">
               <div class="col">
@@ -114,26 +133,107 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.18/c3.js"></script>
     <script>
-
       let data = []
       const list = document.querySelector(".list")
       const filter = document.querySelector(".filter")
       const searchNum = document.querySelector(".searchNum")
+      
+      //新增套票
+      const addButton = document.querySelector("#addButton")
+      const addName = document.getElementById('addName');
+      const addImage = document.getElementById('addImage');
+      const addArea = document.getElementById('addArea');
+      const addPrice = document.getElementById('addPrice');
 
       axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelApi.json')
         .then(function (response) {
           // handle success
           data = response.data.data
+          chartData(data);
           init();
         })
         .catch(function (error) {
           // handle error
           console.log(error);
         });
-
+      
+      addButton.addEventListener("click",function(e){
+        let addObj ={}
+        console.log(data.length)
+        if(!addName.value || !addImage.value || !addPrice.value || !addTicketRemainder.value || !addStar.value || !ticketDescription.value || !addArea.value){
+          alert("請填寫完全")
+          return
+        }
+        addObj =  {
+          "id": data.length,
+          "name": addName.value,
+          "imgUrl": addImage.value,
+          "area": addArea.value,
+          "description": ticketDescription.value,
+          "group": addTicketRemainder.value,
+          "price": addPrice.value,
+          "rate": addStar.value
+        }
+        data.push(addObj)
+        chartData(data);
+        init();
+        addName.value=""
+        addImage.value=""
+        ticketDescription.value=""
+        addTicketRemainder.value=""
+        addPrice.value=""
+        addStar.value=""
+        addArea.value=""
+      })
+      //圖表
+      function chartData(data) {
+        let totalObject = {};
+        data.forEach(function (item) {
+          if (totalObject[item.area] === undefined) {
+            totalObject[item.area] = 1;
+          } else {
+            totalObject[item.area]++;
+          }
+        });
+        let newData = [];
+        let area = Object.keys(totalObject);
+        area.forEach(function (item, index) {
+          let ary = [];
+          ary.push(item);
+          ary.push(totalObject[item]);
+          newData.push(ary);
+        });
+        chartf(newData)
+      }
+      function chartf(data){
+        const chart = c3.generate({
+        data: {
+          // iris data from R
+          columns: data,
+          type: "donut",
+        },
+        donut: {
+          title: "套票地區比重",
+          label: {
+            format: function (value, ratio, id) {
+                return "";  // 將標籤格式設置為空字符串
+            }
+          },
+          width: 10,
+        },
+        size: {
+        width: 160,  // 設置寬度
+        height: 205  // 設置高度
+        },
+      });
+      }
+        
+      //旅遊列表
       function html(item){
-        return `<div class="col">
+        return `<div class="col mb-a38">
                 <div class="card h-100">
                   <div class="position-relative">
                     <div class="position-absolute translate-middle-y top-0 start-0 bg-secondary">
@@ -183,6 +283,7 @@
         list.innerHTML = str;
         searchNum.innerHTML = `本次搜尋共 ${num} 筆資料`
       })
+      
 
     </script>
 </body>
